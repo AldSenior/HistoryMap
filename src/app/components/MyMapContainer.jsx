@@ -1,30 +1,54 @@
 'use client'
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useState } from 'react'
+import Modal from './Modal'
 
-const events = [
-	{ id: 1, position: [55.751244, 37.618429], title: 'Событие 1', description: 'Описание события 1' },
-	{ id: 2, position: [55.7558, 37.6173], title: 'Событие 2', description: 'Описание события 2' },
-	// Добавьте больше событий...
-]
+function MyMapComponent({ events }) {
+	const [searchTerm, setSearchTerm] = useState('')
+	const [selectedEvent, setSelectedEvent] = useState(null)
+	const [modalVisible, setModalVisible] = useState(false)
 
-function MyMapComponent() {
+	const handleMarkerClick = (event) => {
+		setSelectedEvent(event)
+		setModalVisible(true)
+	}
+
+	const closeModal = () => {
+		setModalVisible(false)
+		setSelectedEvent(null)
+	}
+
 	return (
-		<div className="flex flex-col items-center">
-			<h1 className="text-2xl font-bold my-4">Интерактивная карта исторических событий</h1>
-			<MapContainer className='w-[90vw] h-[70vh] rounded-lg border-2 border-gray-300 shadow-lg' center={[55.751244, 37.618429]} zoom={13}>
-				<TileLayer
-					attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-					url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-				/>
-				{events.map(event => (
-					<Marker key={event.id} position={event.position}>
-						<Popup>
-							<strong>{event.title}</strong><br />
-							{event.description}
-						</Popup>
-					</Marker>
-				))}
-			</MapContainer>
+		<div className="flex w-[100vw] flex-col items-center justify-center bg-gray-100 min-h-screen">
+			<input
+				type="text"
+				placeholder="Поиск событий..."
+				className="mb-4 p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
+				value={searchTerm}
+				onChange={(e) => setSearchTerm(e.target.value)}
+			/>
+
+			<div id='map' className="relative w-full aspect-[16/9] bg-cover bg-center">
+				<AnimatePresence>
+					{events.map((event) => (
+						<motion.div
+							key={event.id}
+							onClick={() => handleMarkerClick(event)}
+							className="absolute cursor-pointer rounded-full bg-red-500 w-6 h-6 transform -translate-x-3 -translate-y-3 transition transform hover:scale-125"
+							style={{
+								left: `${(event.coords.lng) * (100 / 360)}%`,
+								top: `${(event.coords.lat) * (100 / 180)}%`,
+							}}
+							initial={{ opacity: 0, scale: 0 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0 }}
+							transition={{ duration: 0.3 }}
+						/>
+					))}
+				</AnimatePresence>
+			</div>
+
+			<Modal isVisible={modalVisible} onClose={closeModal} event={selectedEvent} />
 		</div>
 	)
 }

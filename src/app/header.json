@@ -1,0 +1,26 @@
+[
+	{
+		"title": "События",
+		"link": "/events"
+	},
+	{
+		"title": "Интерактивная карта",
+		"link": "/map"
+	},
+	{
+		"title": "Личности",
+		"link": "/personalities"
+	},
+	{
+		"title": "Документы",
+		"link": "/documents"
+	},
+	{
+		"title": "Статьи",
+		"link": "/articles"
+	},
+	{
+		"title": "О проекте",
+		"link": "/about"
+	}
+]

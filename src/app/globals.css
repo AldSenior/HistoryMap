@@ -15,17 +15,13 @@
 
 body {
 	color: var(--foreground);
-	background: var(--background);
 	font-family: Arial, Helvetica, sans-serif;
 	width: 100vw;
 	height: 100vh;
 }
-.leaflet-bottom.leaflet-right {
-	display: none !important; /* Скрывает элемент */
-}
 
-.marker-icon {
-	filter: brightness(0) invert(1);
+#map {
+	background-image: url('./assets/RussianMap1914.webp');
 }
 
 tml,

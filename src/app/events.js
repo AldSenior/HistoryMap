@@ -1,129 +1,164 @@
 export const events = [
 	{
 		id: 1,
-		position: [55.751244, 37.618429],
-		title: 'Открытие Москвы',
-		description: 'Москва была основана в 1147 году и стала центром российской политики и культуры.',
-		category: 'История'
+		title: "Февральская революция",
+		date: "23 февраля — 2 марта 1917",
+		description: "Серия массовых протестов и забастовок, приведшие к свержению монархии в России и созданию Временного правительства.",
+		personalities: [
+			{
+				id: 1,
+				name: "Ленин (Ульянов Владимир Ильич)",
+				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Троцкий (Лев Давидович)",
+				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Корнилов (Лавр Георгиевич)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Lavr_Cornilov.jpg",
+			}
+		]
 	},
 	{
 		id: 2,
-		position: [55.7558, 37.6173],
-		title: 'Первый Кремль',
-		description: 'Кремль в Москве был построен в конце XV века как укреплённый город.',
-		category: 'История'
+		title: "Октябрьская революция",
+		date: "25 октября (7 ноября) 1917",
+		description: "Вооружённое восстание, в результате которого большевики захватили власть и начали радикальные изменения в стране.",
+		personalities: [
+			{
+				id: 1,
+				name: "Ленин (Ульянов Владимир Ильич)",
+				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Сталин (Иосиф Виссарионович)",
+				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Зиновьев (Григорий Евсеевич)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Grigori_Zinoviev.jpg",
+			}
+		]
 	},
 	{
 		id: 3,
-		position: [59.93428, 30.3351],
-		title: 'Открытие Санкт-Петербурга',
-		description: 'Санкт-Петербург был основан Петром Великим в 1703 году.',
-		category: 'История'
+		title: "Гражданская война",
+		date: "1917 — 1922",
+		description: "Конфликт между Красной армией (советская власть) и белыми (контрреволюционные силы), определивший судьбу страны.",
+		personalities: [
+			{
+				id: 1,
+				name: "Ленин (Ульянов Владимир Ильич)",
+				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Троцкий (Лев Давидович)",
+				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Колчак (Александр Васильевич)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Admiral_White.png",
+			},
+			{
+				id: 4,
+				name: "Деникин (Антон Иванович)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Denikin_anton.jpg",
+			}
+		]
 	},
 	{
 		id: 4,
-		position: [51.5074, -0.1278],
-		title: 'Великая Лондонская Острада',
-		description: 'Лондонская буржуазия стала основой успешного капитализма в XIX веке.',
-		category: 'Экономика'
+		title: "Создание РСФСР",
+		date: "10 июля 1918",
+		description: "Принятие первой конституции РСФСР, которая закрепила основы нового советского государства.",
+		personalities: [
+			{
+				id: 1,
+				name: "Ленин (Ульянов Владимир Ильич)",
+				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Сталин (Иосиф Виссарионович)",
+				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Дзержинский (Феликс Эдмундович)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Felix_Dzerzhinsky.jpg/800px-Felix_Dzerzhinsky.jpg",
+			}
+		]
 	},
 	{
 		id: 5,
-		position: [40.7128, -74.0060],
-		title: 'День независимости США',
-		description: 'День, когда была принята Декларация независимости 4 июля 1776 года.',
-		category: 'Политика'
+
+		title: "Начало НЭПа",
+		date: "1921",
+		description: "Переход от военного коммунизма к новой экономической политике (нэп), позволяющей частное предпринимательство и рыночные механизмы.",
+		personalities: [
+			{
+				id: 1,
+				name: "Ленин (Ульянов Владимир Ильич)",
+				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Сталин (Иосиф Виссарионович)",
+				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
+			}
+		]
 	},
 	{
 		id: 6,
-		position: [48.8566, 2.3522],
-		title: 'Французская революция',
-		description: 'Французская революция началась в 1789 году и привела к важным социальным изменениям.',
-		category: 'Политика'
+		title: "Восстание в Кронштадте",
+		date: "1921",
+		description: "Военное восстание моряков и солдат, недовольных политикой режим, началось на Кронштадтской базе.",
+		personalities: [
+			{
+				id: 1,
+				name: "Троцкий (Лев Давидович)",
+				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Сталин (Иосиф Виссарионович)",
+				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Зиновьев (Григорий Евсеевич)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Grigori_Zinoviev.jpg",
+			}
+		]
 	},
 	{
 		id: 7,
-		position: [41.902782, 12.496366],
-		title: 'Падение Римской империи',
-		description: 'Римская империя пала в 476 году, что ознаменовало начало Средневековья.',
-		category: 'История'
-	},
-	{
-		id: 8,
-		position: [52.5200, 13.4050],
-		title: 'Берлинская стена',
-		description: 'Стена была построена в 1961 году и разделила Восточный и Западный Берлин.',
-		category: 'Политика'
-	},
-	{
-		id: 9,
-		position: [36.1699, -115.1398],
-		title: 'Население Лас-Вегаса',
-		description: 'Лас-Вегас стал известным как столица развлечений благодаря популяризации игорного бизнеса.',
-		category: 'Культура'
-	},
-	{
-		id: 10,
-		position: [44.4268, 26.1025],
-		title: 'Румынская революция',
-		description: 'Революция 1989 года привела к свержению режима Чаушеску.',
-		category: 'Политика'
-	},
-	{
-		id: 11,
-		position: [35.6895, 139.6917],
-		title: 'Первая Олимпиада',
-		description: 'Современные Олимпийские игры были проведены в Афинах в 1896 году.',
-		category: 'Спорт'
-	},
-	{
-		id: 12,
-		position: [39.9042, 116.4074],
-		title: 'Пекинская олимпиада',
-		description: 'Летние Олимпийские игры 2008 года прошли в Пекине.',
-		category: 'Спорт'
-	},
-	{
-		id: 13,
-		position: [30.0444, 31.2357],
-		title: 'Строительство пирамид',
-		description: 'Самая известная пирамида, пирамида Хеопса, была построена около 2580–2560 года до нашей эры.',
-		category: 'История'
-	},
-	{
-		id: 14,
-		position: [28.6139, 77.2090],
-		title: 'День независимости Индии',
-		description: 'Индия получила независимость от Великобритании 15 августа 1947 года.',
-		category: 'Политика'
-	},
-	{
-		id: 15,
-		position: [55.3781, -3.4360],
-		title: 'Состояние Великобритании',
-		description: 'Установление парламентаризма в Англии, которое началось с Великой хартии вольностей в 1215 году.',
-		category: 'Политика'
-	},
-	{
-		id: 16,
-		position: [13.4125, 122.5363],
-		title: 'Магелланов кругосветка',
-		description: 'Фердинанд Магеллан стал первым, кто совершил кругосветное плавание в 1519-1522 годах.',
-		category: 'Исследование'
-	},
-	{
-		id: 17,
-		position: [-33.4489, -70.6693],
-		title: 'Основание Сантьяго',
-
-		description: 'Сантьяго, столица Чили, была основана в 1541 году испанскими конкистадорами.',
-		category: 'История'
-	},
-	{
-		id: 18,
-		position: [1.3521, 103.8198],
-		title: 'Открытие Сингапура',
-		description: 'Сингапур стал независимым государством в 1965 году.',
-		category: 'Политика'
+		title: "Смерть Ленина",
+		date: "21 января 1924",
+		description: "Смерть одного из крупнейших лидеров Октябрьской революции и основателя советского государства.",
+		personalities: [
+			{
+				id: 1,
+				name: "Сталин (Иосиф Виссарионович)",
+				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
+			},
+			{
+				id: 2,
+				name: "Троцкий (Лев Давидович)",
+				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
+			},
+			{
+				id: 3,
+				name: "Бухарин (Николай Иванович)",
+				image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Nikolai_Bukharin.png",
+			}
+		]
 	}
 ]

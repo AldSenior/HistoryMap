@@ -1,164 +1,306 @@
 export const events = [
-	{
-		id: 1,
-		title: "Февральская революция",
-		date: "23 февраля — 2 марта 1917",
-		description: "Серия массовых протестов и забастовок, приведшие к свержению монархии в России и созданию Временного правительства.",
-		personalities: [
-			{
-				id: 1,
-				name: "Ленин (Ульянов Владимир Ильич)",
-				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Троцкий (Лев Давидович)",
-				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Корнилов (Лавр Георгиевич)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/2/28/Lavr_Cornilov.jpg",
-			}
-		]
-	},
-	{
-		id: 2,
-		title: "Октябрьская революция",
-		date: "25 октября (7 ноября) 1917",
-		description: "Вооружённое восстание, в результате которого большевики захватили власть и начали радикальные изменения в стране.",
-		personalities: [
-			{
-				id: 1,
-				name: "Ленин (Ульянов Владимир Ильич)",
-				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Сталин (Иосиф Виссарионович)",
-				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Зиновьев (Григорий Евсеевич)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Grigori_Zinoviev.jpg",
-			}
-		]
-	},
-	{
-		id: 3,
-		title: "Гражданская война",
-		date: "1917 — 1922",
-		description: "Конфликт между Красной армией (советская власть) и белыми (контрреволюционные силы), определивший судьбу страны.",
-		personalities: [
-			{
-				id: 1,
-				name: "Ленин (Ульянов Владимир Ильич)",
-				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Троцкий (Лев Давидович)",
-				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Колчак (Александр Васильевич)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/3/3f/Admiral_White.png",
-			},
-			{
-				id: 4,
-				name: "Деникин (Антон Иванович)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/a/aa/Denikin_anton.jpg",
-			}
-		]
-	},
-	{
-		id: 4,
-		title: "Создание РСФСР",
-		date: "10 июля 1918",
-		description: "Принятие первой конституции РСФСР, которая закрепила основы нового советского государства.",
-		personalities: [
-			{
-				id: 1,
-				name: "Ленин (Ульянов Владимир Ильич)",
-				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Сталин (Иосиф Виссарионович)",
-				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Дзержинский (Феликс Эдмундович)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Felix_Dzerzhinsky.jpg/800px-Felix_Dzerzhinsky.jpg",
-			}
-		]
-	},
-	{
-		id: 5,
-
-		title: "Начало НЭПа",
-		date: "1921",
-		description: "Переход от военного коммунизма к новой экономической политике (нэп), позволяющей частное предпринимательство и рыночные механизмы.",
-		personalities: [
-			{
-				id: 1,
-				name: "Ленин (Ульянов Владимир Ильич)",
-				image: "https://avatars.mds.yandex.net/i?id=3a7cdec45d69b6d8d1a9bd50c31b33b854e3346c-4216017-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Сталин (Иосиф Виссарионович)",
-				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
-			}
-		]
-	},
-	{
-		id: 6,
-		title: "Восстание в Кронштадте",
-		date: "1921",
-		description: "Военное восстание моряков и солдат, недовольных политикой режим, началось на Кронштадтской базе.",
-		personalities: [
-			{
-				id: 1,
-				name: "Троцкий (Лев Давидович)",
-				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Сталин (Иосиф Виссарионович)",
-				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Зиновьев (Григорий Евсеевич)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/a/a1/Grigori_Zinoviev.jpg",
-			}
-		]
-	},
-	{
-		id: 7,
-		title: "Смерть Ленина",
-		date: "21 января 1924",
-		description: "Смерть одного из крупнейших лидеров Октябрьской революции и основателя советского государства.",
-		personalities: [
-			{
-				id: 1,
-				name: "Сталин (Иосиф Виссарионович)",
-				image: "https://avatars.mds.yandex.net/i?id=470de1cb938aeb04bf703fa453c0bfb4db652992-5205050-images-thumbs&n=13",
-			},
-			{
-				id: 2,
-				name: "Троцкий (Лев Давидович)",
-				image: "https://avatars.mds.yandex.net/i?id=59db1a85f3ede0a8474db34b35d9ec8762f53b7f-8082760-images-thumbs&n=13",
-			},
-			{
-				id: 3,
-				name: "Бухарин (Николай Иванович)",
-				image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Nikolai_Bukharin.png",
-			}
-		]
-	}
-]
+    {
+        id: 1,
+        title: "Февральская революция",
+        date: "23 февраля — 2 марта 1917 (по старому стилю)",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Массовые забастовки в Петрограде, переход войск на сторону восставших, отречение Николая II. Создано Временное правительство и Петроградский Совет, установлено двоевластие.",
+        category: "Историческое",
+        personalities: [
+            {
+                id: 1,
+                name: "Николай II",
+                image: "https://example.com/nikolay2.jpg"
+            },
+            {
+                id: 2,
+                name: "Михаил Родзянко",
+                image: "https://example.com/rodzyanko.jpg"
+            }
+        ]
+    },
+    {
+        id: 2,
+        title: "Увольнение 30 тыс. рабочих с Путиловского завода",
+        date: "22 февраля 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Импульс для забастовочного движения.",
+        category: "Историческое",
+        personalities: []
+    },
+    {
+        id: 3,
+        title: "Всеобщая забастовка в Петрограде",
+        date: "23-25 февраля 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Массовые антиправительственные митинги.",
+        category: "Историческое",
+        personalities: []
+    },
+    {
+        id: 4,
+        title: "Переход войск на сторону бастующих",
+        date: "26-27 февраля 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Формирование 2-х центров власти. Начало периода двоевластия.",
+        category: "Историческое",
+        personalities: []
+    },
+    {
+        id: 5,
+        title: "Отречение Николая II от престола",
+        date: "2 марта 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Образование Временного правительства. Смена государственного строя в стране.",
+        category: "Историческое",
+        personalities: [
+            {
+                id: 1,
+                name: "Николай II",
+                image: "https://example.com/nikolay2.jpg"
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "Апрельские тезисы Ленина",
+        date: "4 апреля 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "В.И. Ленин выступил с программой перехода от буржуазной революции к социалистической. Основные лозунги: «Вся власть Советам!», «Мир — народам!», «Земля — крестьянам!».",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 3,
+                name: "Владимир Ленин",
+                image: "https://example.com/lenin.jpg"
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Министр Милюков заявляет о продолжении войны",
+        date: "Апрель 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Ленин выдвигает лозунг “Мир без аннексий и контрибуций”.",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 4,
+                name: "Павел Милюков",
+                image: "https://example.com/milyukov.jpg"
+            },
+            {
+                id: 3,
+                name: "Владимир Ленин",
+                image: "https://example.com/lenin.jpg"
+            }
+        ]
+    },
+    {
+        id: 8,
+        title: "Июльский кризис",
+        date: "3-5 июля 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Массовые антиправительственные демонстрации в Петрограде, расстрел протестующих. Большевики объявлены вне закона, Ленин скрывается в Финляндии. Окончание двоевластия.",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 5,
+                name: "Александр Керенский",
+                image: "https://example.com/kerensky.jpg"
+            }
+        ]
+    },
+    {
+        id: 9,
+        title: "Взятие курса на вооруженное восстание",
+        date: "26 июля - 3 августа 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "6 съезд РСДРП (большевики).",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 10,
+        title: "Корниловский мятеж",
+        date: "25-31 августа 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Попытка генерала Корнилова установить военную диктатуру. Провал из-за сопротивления рабочих и солдат. Усиление влияния большевиков.",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 6,
+                name: "Лавр Корнилов",
+                image: "https://example.com/kornilov.jpg"
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "ЦК РСДРП принимает решение о взятии власти",
+        date: "10-16 октября 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Переход Петроградского гарнизона на сторону Петроградского Совета и Военного Революционного комитета.",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 12,
+        title: "Захват отрядами Красной Гвардии стратегических объектов города",
+        date: "24 октября 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Начало захвата власти.",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 13,
+        title: "Воззвание Военного Революционного комитета к гражданам России",
+        date: "25 октября 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Открытие 2 съезда Советов. Приняты Декреты о мире и Земле. Провозглашена Республика Советов.",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 14,
+        title: "Штурм Зимнего Дворца",
+        date: "26 октября 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Арест Временного правительства. Фактический захват власти большевиками.",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 15,
+        title: "Октябрьское восстание",
+        date: "Октябрь 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Завершение политического кризиса в России и захват власти партией большевиков. Законность этому событию придали решения 2 съезда Советов.",
+        category: "Политическое",
+        personalities: []
+    },
+    {
+        id: 16,
+        title: "Брестский мир",
+        date: "3 марта 1918",
+        coords: {
+            lat: 52.0976,
+            lng: 23.7341
+        },
+        description: "Советская Россия выходит из Первой мировой войны, теряя территории Украины, Прибалтики и Белоруссии. Договор вызвал раскол в партии большевиков.",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 3,
+                name: "Владимир Ленин",
+                image: "https://example.com/lenin.jpg"
+            }
+        ]
+    },
+    {
+        id: 17,
+        title: "Разгон Учредительного собрания",
+        date: "6 января 1918",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Большевики распустили Учредительное собрание после отказа признать декреты Советской власти. Окончательная ликвидация буржуазной демократии.",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 3,
+                name: "Владимир Ленин",
+                image: "https://example.com/lenin.jpg"
+            }
+        ]
+    },
+    {
+        id: 18,
+        title: "Начало Гражданской войны",
+        date: "май 1918",
+        coords: {
+            lat: 55.7558,
+            lng: 37.6176
+        },
+        description: "Восстание Чехословацкого корпуса стало катализатором полномасштабной войны между «красными» и «белыми». Продолжалась до 1922 года.",
+        category: "Историческое",
+        personalities: []
+    },
+    {
+        id: 19,
+        title: "Создание ВЧК",
+        date: "7 декабря 1917",
+        coords: {
+            lat: 59.9345,
+            lng: 30.335
+        },
+        description: "Образование Всероссийской чрезвычайной комиссии для борьбы с контрреволюцией. Стала инструментом «красного террора».",
+        category: "Политическое",
+        personalities: [
+            {
+                id: 7,
+                name: "Феликс Дзержинский",
+                image: "https://example.com/dzerzhinsky.jpg"
+            }
+        ]
+    },
+    {
+        id: 20,
+        title: "Принятие Конституции РСФСР",
+        date: "10 июля 1918",
+        coords: {
+            lat: 55.7558,
+            lng: 37.6176
+        },
+        description: "Провозглашение России Республикой Советов. Закрепление диктатуры пролетариата и федеративного устройства.",
+        category: "Историческое",
+        personalities: []
+    }
+];

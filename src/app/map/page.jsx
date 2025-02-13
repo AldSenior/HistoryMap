@@ -2,18 +2,18 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import MyMapComponent from '../components/MyMapContainer'
-import markers from "../markers.json"
+import {events} from "../events"
 
 
 const MapPage = () => {
 	const [selectedCategory, setSelectedCategory] = useState("all")
-	const [filteredMarkers, setFilteredMarkers] = useState(markers) // доступные маркеры
+	const [filteredMarkers, setFilteredMarkers] = useState(events) // доступные маркеры
 
 	useEffect(() => {
 		if (selectedCategory === "all") {
-			setFilteredMarkers(markers)
+			setFilteredMarkers(events)
 		} else {
-			setFilteredMarkers(markers.filter(marker => marker.category === selectedCategory))
+			setFilteredMarkers(events.filter(marker => marker.category === selectedCategory))
 		}
 	}, [selectedCategory])
 
@@ -29,7 +29,7 @@ const MapPage = () => {
 			</motion.h1>
 			<div className="mb-4">
 				<select
-					className="border border-gray-300 rounded-md p-2"
+					className="border  rounded-md p-2"
 					onChange={(e) => setSelectedCategory(e.target.value)}
 					value={selectedCategory}
 				>
@@ -39,7 +39,7 @@ const MapPage = () => {
 					<option value="Культурное">Культурные</option>
 				</select>
 			</div>
-			<div className="w-full h-96 bg-gray-200 rounded-lg shadow-lg relative">
+			<div className="w-full h-96 rounded-lg shadow-lg relative">
 				<MyMapComponent events={filteredMarkers} />
 			</div>
 		</div>

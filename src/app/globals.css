@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
 	--background: #ffffff;
 	--foreground: #171717;
@@ -18,10 +19,26 @@ body {
 	font-family: Arial, Helvetica, sans-serif;
 	width: 100vw;
 	height: 100vh;
+	color: #f0f0f0;
+
+
+
 }
 
 #map {
 	background-image: url('./assets/RussianMap1914.webp');
+}
+
+#serp {
+	background-image: url("./assets/serpandmolot.png");
+	background-size: cover;
+	background-clip: border-box;
+}
+
+#marker {
+	background-image: url("./assets/redflag.png");
+	background-size: cover;
+	background-clip: border-box;
 }
 
 tml,
@@ -113,6 +130,7 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
 article,
 aside,
 details,
@@ -126,20 +144,25 @@ nav,
 section {
 	display: block;
 }
+
 html {
 	height: 100%;
 }
+
 body {
 	line-height: 1;
 }
+
 ol,
 ul {
 	list-style: none;
 }
+
 blockquote,
 q {
 	quotes: none;
 }
+
 blockquote:before,
 blockquote:after,
 q:before,
@@ -147,6 +170,7 @@ q:after {
 	content: '';
 	content: none;
 }
+
 table {
 	border-collapse: collapse;
 	border-spacing: 0;

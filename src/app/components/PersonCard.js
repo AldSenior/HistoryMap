@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion'
 
-const PersonCard = ({ person }) => {
+const PersonCard = ({ person,index }) => {
 	const cardVariants = {
 		hidden: { opacity: 0, y: 20 },
 		visible: { opacity: 1, y: 0 },
+		
 		hover: { scale: 1.05, boxShadow: "0px 8px 20px rgba(0, 0, 0, 0.2)" },
 	}
 
@@ -87,7 +88,7 @@ const PersonCard = ({ person }) => {
 						variants={textVariants}
 						initial="hidden"
 						animate="visible"
-						transition={{ delay: 0.6 + index * 0.1 }} // Анимация достижения с задержкой
+						transition={{ delay: 0.6 + index * 0.1 }}
 					>
 						{achievement}
 					</motion.li>

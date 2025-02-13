@@ -30,9 +30,9 @@ export default function RootLayout({ children }) {
           exit={{ opacity: 0, y: 20 }}
         >
           <Header />
-
+          {children}
         </LayoutTransition>
-        {children}
+
       </body>
     </html>
   )

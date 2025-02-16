@@ -26,7 +26,11 @@ body {
 }
 
 #map {
-	background-image: url('./assets/RussianMap1914.webp');
+	background-color: aquamarine;
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-clip: border-box;
+
 }
 
 #serp {

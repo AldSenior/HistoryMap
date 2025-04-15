@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@types/mapbox-gl": "^3.4.1",
+    "animejs": "^4.0.1",
     "framer-motion": "^12.3.0",
+    "fs": "^0.0.1-security",
     "leaflet": "^1.9.4",
     "mapbox-gl": "^3.9.4",
     "next": "15.0.4",

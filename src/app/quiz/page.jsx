@@ -1,6 +1,6 @@
-// pages/quiz.js
-import Head from 'next/head';
-import Quiz from '../components/quizask';
+"use client";
+import Head from "next/head";
+import Quiz from "../components/quizask";
 
 const QuizPage = () => {
   return (
@@ -14,4 +14,4 @@ const QuizPage = () => {
     </div>
   );
 };
-export default QuizPage
+export default QuizPage;

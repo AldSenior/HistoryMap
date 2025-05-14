@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import EventPopup from "./EventPopup";
+import { urezpers } from "../events"; // Убедись, что путь корректный
 
 function MyMapComponent({ events }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -17,13 +18,22 @@ function MyMapComponent({ events }) {
   const [showPopup, setShowPopup] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [allowAddingMarkers, setAllowAddingMarkers] = useState(true);
-  const [customEvents, setCustomEvents] = useState(() => {
-    const savedEvents = localStorage.getItem("customEvents");
-    return savedEvents ? JSON.parse(savedEvents) : [];
-  });
+  const [customEvents, setCustomEvents] = useState([]);
+  const [isClient, setIsClient] = useState(false);
 
   const mapRef = useRef(null);
   const containerRef = useRef(null);
+
+  // Загрузка customEvents только на клиенте
+  useEffect(() => {
+    setIsClient(true);
+    if (typeof window !== "undefined") {
+      const saved = localStorage.getItem("customEvents");
+      if (saved) {
+        setCustomEvents(JSON.parse(saved));
+      }
+    }
+  }, []);
 
   const handleMouseDown = (e) => {
     setIsDragging(true);
@@ -79,12 +89,6 @@ function MyMapComponent({ events }) {
         0.5) *
       180;
 
-    console.log("Map clicked, showPopup:", showPopup, "Coordinates:", {
-      x,
-      y,
-      lat,
-      lng,
-    });
     setClickedCoordinates({ x, y, lat, lng });
     setShowPopup(true);
   };
@@ -104,7 +108,10 @@ function MyMapComponent({ events }) {
 
     const updatedEvents = [...customEvents, newEvent];
     setCustomEvents(updatedEvents);
-    localStorage.setItem("customEvents", JSON.stringify(updatedEvents));
+
+    if (typeof window !== "undefined") {
+      localStorage.setItem("customEvents", JSON.stringify(updatedEvents));
+    }
 
     setShowPopup(false);
     setClickedCoordinates(null);
@@ -124,7 +131,7 @@ function MyMapComponent({ events }) {
 
     const newScale = Math.max(1, Math.min(3, scale * delta));
     const mapWidth = mapRef.current.offsetWidth * newScale;
-    const mapHeight = mapRef.current.offsetHeight * scale;
+    const mapHeight = mapRef.current.offsetHeight * newScale;
 
     const newTranslateX = Math.max(
       rect.width - mapWidth,
@@ -141,8 +148,8 @@ function MyMapComponent({ events }) {
 
   const toggleFullscreen = () => {
     if (!document.fullscreenElement) {
-      containerRef.current.requestFullscreen().catch((err) => {
-        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      containerRef.current?.requestFullscreen().catch((err) => {
+        console.error(`Error enabling fullscreen: ${err.message}`);
       });
     } else {
       document.exitFullscreen();
@@ -150,6 +157,8 @@ function MyMapComponent({ events }) {
   };
 
   useEffect(() => {
+    if (!isClient) return;
+
     const mapElement = mapRef.current;
     const containerElement = containerRef.current;
     if (mapElement && containerElement) {
@@ -174,7 +183,9 @@ function MyMapComponent({ events }) {
         );
       };
     }
-  }, [isDragging, scale, translate]);
+  }, [isDragging, scale, translate, isClient]);
+
+  if (!isClient) return null;
 
   const allEvents = [...(events || []), ...customEvents];
 
@@ -192,8 +203,7 @@ function MyMapComponent({ events }) {
           style={{
             transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
             transformOrigin: "top left",
-            // backgroundImage: "url('/map-background.jpg')", // Replace with your map image
-            backgroundColor: "#e0e0e0", // Placeholder for debugging
+            backgroundColor: "#e0e0e0",
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
@@ -231,16 +241,14 @@ function MyMapComponent({ events }) {
             className="bg-[#D4A017] text-white px-4 py-2 rounded-full hover:bg-yellow-500 transition-shadow shadow-md hover:shadow-xl"
             whileHover={{ scale: 1.05 }}
           >
-            {isFullscreen
-              ? "Выйти из полноэкранного режима"
-              : "Полноэкранный режим"}
+            {isFullscreen ? "Выйти из полноэкранного" : "Полноэкранный режим"}
           </motion.button>
           <label className="flex items-center gap-2 bg-[#D4A017] text-white px-4 py-2 rounded-full hover:bg-yellow-500 transition-shadow shadow-md hover:shadow-xl">
             <input
               type="checkbox"
               checked={allowAddingMarkers}
               onChange={(e) => setAllowAddingMarkers(e.target.checked)}
-              className="w-4 h-4 text-orange-400"
+              className="w-4 h-4"
             />
             Разрешить добавление событий
           </label>

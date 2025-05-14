@@ -1,26 +1,22 @@
 [
-	{
-		"title": "События",
-		"link": "/events"
-	},
-	{
-		"title": "Интерактивная карта",
-		"link": "/map"
-	},
-	{
-		"title": "Личности",
-		"link": "/personalities"
-	},
-	{
-		"title": "Викторины",
-		"link": "/quiz"
-	},
-	{
-		"title": "Статьи",
-		"link": "/articles"
-	},
-	{
-		"title": "О проекте",
-		"link": "/about"
-	}
+  {
+    "title": "События",
+    "link": "/events"
+  },
+  {
+    "title": "Карта",
+    "link": "/map"
+  },
+  {
+    "title": "Личности",
+    "link": "/personalities"
+  },
+  {
+    "title": "Викторины",
+    "link": "/quiz"
+  },
+  {
+    "title": "ТаймЛайн",
+    "link": "/timeline"
+  }
 ]

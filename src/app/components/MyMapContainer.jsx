@@ -3,11 +3,9 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
-import { events } from "../events";
 import EventPopup from "./EventPopup";
 
-function MyMapComponent() {
-  const [searchTerm, setSearchTerm] = useState("");
+function MyMapComponent({ events }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [clickedCoordinates, setClickedCoordinates] = useState(null);
@@ -17,6 +15,8 @@ function MyMapComponent() {
   const [isDragging, setIsDragging] = useState(false);
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [showPopup, setShowPopup] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [allowAddingMarkers, setAllowAddingMarkers] = useState(true);
   const [customEvents, setCustomEvents] = useState(() => {
     const savedEvents = localStorage.getItem("customEvents");
     return savedEvents ? JSON.parse(savedEvents) : [];
@@ -62,7 +62,7 @@ function MyMapComponent() {
   };
 
   const handleMapClick = (e) => {
-    if (isDragging || showPopup) return;
+    if (isDragging || showPopup || !allowAddingMarkers) return;
     const bounds = mapRef.current.getBoundingClientRect();
     const x = e.clientX;
     const y = e.clientY;
@@ -79,6 +79,12 @@ function MyMapComponent() {
         0.5) *
       180;
 
+    console.log("Map clicked, showPopup:", showPopup, "Coordinates:", {
+      x,
+      y,
+      lat,
+      lng,
+    });
     setClickedCoordinates({ x, y, lat, lng });
     setShowPopup(true);
   };
@@ -116,9 +122,9 @@ function MyMapComponent() {
     const mouseX = e.clientX - rect.left;
     const mouseY = e.clientY - rect.top;
 
-    const newScale = Math.max(0.5, Math.min(3, scale * delta));
+    const newScale = Math.max(1, Math.min(3, scale * delta));
     const mapWidth = mapRef.current.offsetWidth * newScale;
-    const mapHeight = mapRef.current.offsetHeight * newScale;
+    const mapHeight = mapRef.current.offsetHeight * scale;
 
     const newTranslateX = Math.max(
       rect.width - mapWidth,
@@ -133,6 +139,16 @@ function MyMapComponent() {
     setTranslate({ x: newTranslateX, y: newTranslateY });
   };
 
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      containerRef.current.requestFullscreen().catch((err) => {
+        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  };
+
   useEffect(() => {
     const mapElement = mapRef.current;
     const containerElement = containerRef.current;
@@ -141,49 +157,49 @@ function MyMapComponent() {
       mapElement.addEventListener("mousedown", handleMouseDown);
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
-    }
 
-    return () => {
-      if (mapElement && containerElement) {
+      const handleFullscreenChange = () => {
+        setIsFullscreen(!!document.fullscreenElement);
+      };
+      document.addEventListener("fullscreenchange", handleFullscreenChange);
+
+      return () => {
         mapElement.removeEventListener("wheel", handleWheel);
         mapElement.removeEventListener("mousedown", handleMouseDown);
-      }
-      document.removeEventListener("mousemove", handleMouseMove);
-      document.removeEventListener("mouseup", handleMouseUp);
-    };
+        document.removeEventListener("mousemove", handleMouseMove);
+        document.removeEventListener("mouseup", handleMouseUp);
+        document.removeEventListener(
+          "fullscreenchange",
+          handleFullscreenChange,
+        );
+      };
+    }
   }, [isDragging, scale, translate]);
 
-  const allEvents = [...events, ...customEvents];
-  const filteredEvents = allEvents.filter((event) =>
-    event.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  );
+  const allEvents = [...(events || []), ...customEvents];
 
   return (
-    <div className="flex w-screen h-screen flex-col items-center justify-center bg-gray-100">
-      <input
-        type="text"
-        placeholder="Поиск событий..."
-        className="mb-4 p-3 border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-      />
-
+    <div className="relative w-full h-[600px] mx-auto">
       <div
         ref={containerRef}
-        className="relative w-4/5 h-4/5 bg-gray-200 overflow-hidden rounded-lg shadow-lg"
+        className="relative w-full h-full overflow-hidden rounded-xl shadow-2xl"
       >
         <div
           id="map"
           ref={mapRef}
-          className="absolute w-[1600px] h-[900px] bg-cover bg-center cursor-grab"
+          className="absolute w-full h-full bg-cover bg-center cursor-grab"
           onClick={handleMapClick}
           style={{
             transform: `translate(${translate.x}px, ${translate.y}px) scale(${scale})`,
             transformOrigin: "top left",
+            // backgroundImage: "url('/map-background.jpg')", // Replace with your map image
+            backgroundColor: "#e0e0e0", // Placeholder for debugging
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         >
           <AnimatePresence>
-            {filteredEvents.map((event) => (
+            {allEvents.map((event) => (
               <motion.div
                 key={event.id}
                 onClick={(e) => {
@@ -192,9 +208,9 @@ function MyMapComponent() {
                 }}
                 className={`absolute cursor-pointer rounded-full w-7 h-7 ${
                   event.id.toString().startsWith("custom")
-                    ? "bg-red-500"
-                    : "bg-blue-500"
-                }`}
+                    ? "bg-gradient-to-br from-red-400 to-red-600"
+                    : "bg-gradient-to-br from-yellow-300 to-orange-400"
+                } border-2 border-white shadow-lg`}
                 style={{
                   left: `${(event.coords.lng / 360 + 0.5) * 100}%`,
                   top: `${(event.coords.lat / 180 + 0.5) * 100}%`,
@@ -209,20 +225,38 @@ function MyMapComponent() {
             ))}
           </AnimatePresence>
         </div>
+        <div className="absolute top-4 right-4 flex flex-col gap-2">
+          <motion.button
+            onClick={toggleFullscreen}
+            className="bg-[#D4A017] text-white px-4 py-2 rounded-full hover:bg-yellow-500 transition-shadow shadow-md hover:shadow-xl"
+            whileHover={{ scale: 1.05 }}
+          >
+            {isFullscreen
+              ? "Выйти из полноэкранного режима"
+              : "Полноэкранный режим"}
+          </motion.button>
+          <label className="flex items-center gap-2 bg-[#D4A017] text-white px-4 py-2 rounded-full hover:bg-yellow-500 transition-shadow shadow-md hover:shadow-xl">
+            <input
+              type="checkbox"
+              checked={allowAddingMarkers}
+              onChange={(e) => setAllowAddingMarkers(e.target.checked)}
+              className="w-4 h-4 text-orange-400"
+            />
+            Разрешить добавление событий
+          </label>
+        </div>
+        <EventPopup
+          isVisible={showPopup}
+          coordinates={clickedCoordinates}
+          onSubmit={handlePopupSubmit}
+          onCancel={handlePopupCancel}
+        />
+        <Modal
+          isVisible={modalVisible}
+          onClose={closeModal}
+          event={selectedEvent}
+        />
       </div>
-
-      <EventPopup
-        isVisible={showPopup}
-        coordinates={clickedCoordinates}
-        onSubmit={handlePopupSubmit}
-        onCancel={handlePopupCancel}
-      />
-
-      <Modal
-        isVisible={modalVisible}
-        onClose={closeModal}
-        event={selectedEvent}
-      />
     </div>
   );
 }

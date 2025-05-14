@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@svgr/webpack": "^8.1.0",
     "@types/mapbox-gl": "^3.4.1",
     "animejs": "^4.0.1",
     "framer-motion": "^12.3.0",

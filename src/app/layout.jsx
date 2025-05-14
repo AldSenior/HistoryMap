@@ -22,14 +22,15 @@ export default function RootLayout({ children }) {
 		<html lang='ru'>
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased w-full`}
+
 			>
-				<LayoutTransition
+				{/* <LayoutTransition
 					initial={{ opacity: 0, y: 20 }}
 					animate={{ opacity: 1, y: 0 }}
 					exit={{ opacity: 0, y: 20 }}
-				>
+				> */}
 					<Header />
-				</LayoutTransition>
+				{/* </LayoutTransition> */}
 				{children}
 			</body>
 		</html>

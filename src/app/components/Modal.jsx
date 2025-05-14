@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Slider from "react-slick";
+import dynamic from "next/dynamic";
+const Slider = dynamic(() => import("react-slick"), { ssr: false });
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import Image from "next/image";

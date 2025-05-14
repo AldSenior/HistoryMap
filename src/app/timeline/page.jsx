@@ -6,7 +6,7 @@ const TimeLine = dynamic(() => import("../components/TimeLine"), {
 
 const TimelinePage = () => {
   return (
-    <div className="bg-gradient-to-b from-[#B22222] to-[#1C2526] min-h-screen text-white">
+    <div className="bg-gradient-to-b from-[#300000] min-h-screen text-white">
       <h1 className="text-4xl font-bold text-center py-8 text-[#D4A017]">
         Хронология Великой российской революции
       </h1>

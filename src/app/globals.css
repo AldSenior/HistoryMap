@@ -185,3 +185,41 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+.spark {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.9) 0%, transparent 80%);
+  transform: translate(-50%, -50%) scale(0.3);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.spark-active {
+  animation: spark-burst 0.5s ease-out forwards;
+}
+
+@keyframes spark-burst {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  50% {
+    width: 40px;
+    height: 40px;
+    opacity: 0.9;
+    transform: translate(-50%, -50%) scale(1.2);
+  }
+  100% {
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.8);
+  }
+}

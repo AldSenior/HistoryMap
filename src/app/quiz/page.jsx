@@ -1,6 +1,6 @@
 "use client";
 import Head from "next/head";
-import Quiz from "../components/quizask";
+import Quiz from "../components/Quizlient";
 
 const QuizPage = () => {
   return (

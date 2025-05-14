@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import MyMapComponent from "../components/MyMapContainer";
+import MyMapComponent from "../components/MyMapClient";
 import { events } from "../events";
 
 const MapPage = () => {

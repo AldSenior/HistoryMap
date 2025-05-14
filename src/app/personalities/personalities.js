@@ -67,7 +67,7 @@ export const personalities = [
     birthDate: "30 августа 1870",
     deathDate: "13 апреля 1918",
     image:
-      "https://sun9-70.userapi.com/impg/pwZbR_xMw4P0S03f8cxxgM2IM2WpIhcZd997tg/3Rxwn5TA7uQ.jpg?size=640x640&quality=96&sign=c150da5228743da9ca527d766dbd3a31&c_uniq_tag=M8rKaJfDJ9ZSq20FN_NMq7eQelVuo73vzD8qzgpG12o&type=album",
+      "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcSawJPC0xmOnuHWxIhxpexVze8cXhtSh-3vmKEzpesda6YB2tapuAN6EE8Pi-A8UVk9ewmd6R6oFKEYuog",
     achievements: [
       "Организация Корниловского мятежа",
       "Командование Добровольческой армией",

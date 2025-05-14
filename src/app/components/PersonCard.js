@@ -3,7 +3,12 @@ import { motion } from "framer-motion";
 const PersonCard = ({ person, index }) => {
   const cardVariants = {
     hidden: { opacity: 0, y: 50, rotate: -5 },
-    visible: { opacity: 1, y: 0, rotate: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
     hover: {
       scale: 1.05,
       rotate: 2,
@@ -15,7 +20,12 @@ const PersonCard = ({ person, index }) => {
 
   const imageVariants = {
     hidden: { opacity: 0, scale: 0.9, filter: "sepia(1)" },
-    visible: { opacity: 1, scale: 1, filter: "sepia(0)", transition: { duration: 0.8 } },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      filter: "sepia(0)",
+      transition: { duration: 0.8 },
+    },
   };
 
   const textVariants = {
@@ -36,11 +46,12 @@ const PersonCard = ({ person, index }) => {
       <motion.img
         src={person.image}
         alt={person.name}
-        className="rounded-lg mb-4 w-full h-56 object-cover"
+        className="rounded-lg mb-4 w-full h-64 object-contain bg-white p-2"
         variants={imageVariants}
         initial="hidden"
         animate="visible"
       />
+
       <motion.h3
         className="text-2xl font-bold mb-2 text-[#1C2526] font-['Playfair_Display'] tracking-tight line-clamp-2"
         variants={textVariants}

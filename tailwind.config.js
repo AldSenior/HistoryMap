@@ -8,6 +8,13 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        "gradient-revolution": "linear-gradient(to bottom, #B22222, #1C2526)",
+      },
+      fontFamily: {
+        Playfair_Display: ["Playfair Display", "serif"],
+        Roboto: ["Roboto", "sans-serif"],
+      },
       colors: {
         gold: "#D4A017",
       },

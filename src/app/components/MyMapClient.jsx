@@ -1,12 +1,12 @@
+// components/MyMapClient.tsx
 "use client";
-
 import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import Modal from "./Modal";
 import EventPopup from "./EventPopup";
-import { urezpers } from "../events"; // Убедись, что путь корректный
+import { urezpers } from "../events";
 
-function MyMapComponent({ events }) {
+export default function MyMapClient({ events }) {
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [modalVisible, setModalVisible] = useState(false);
   const [clickedCoordinates, setClickedCoordinates] = useState(null);
@@ -17,7 +17,7 @@ function MyMapComponent({ events }) {
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
   const [showPopup, setShowPopup] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [allowAddingMarkers, setAllowAddingMarkers] = useState(true);
+  const [allowAddingMarkers, setAllowAddingMarkers] = useState(false);
   const [customEvents, setCustomEvents] = useState([]);
   const [isClient, setIsClient] = useState(false);
 
@@ -268,5 +268,3 @@ function MyMapComponent({ events }) {
     </div>
   );
 }
-
-export default MyMapComponent;

@@ -95,7 +95,7 @@ export default function HeaderClient({ linkstit }) {
             transition={{ delay: 0.2, duration: 0.5 }}
             className="text-2xl sm:text-3xl md:text-4xl font-['Playfair_Display'] font-bold text-[#D4A017] text-center md:text-left"
           >
-            Хронология Великой оссийской революции
+            Хронология Великой Российской революции
           </motion.h1>
         </Link>
 

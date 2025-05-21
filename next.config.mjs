@@ -28,6 +28,12 @@ const nextConfig = {
       },
       {
         protocol: "https",
+        hostname: "encrypted-tbn0.gstatic.com",
+        pathname: "/**",
+      },
+
+      {
+        protocol: "https",
         hostname: "avatars.dzeninfra.ru",
         pathname: "/**",
       },

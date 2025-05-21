@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Sickle from "../assets/sickle.svg";
-import Hammer from "../assets/hammer.svg";
+import Sickle from "../../../public/sickle.svg";
+import Hammer from "../../../public/hammer.svg";
 import { animate } from "animejs";
 
 export default function HeaderClient({ linkstit }) {
